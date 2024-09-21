@@ -22,11 +22,11 @@ export function FoodDetailsModal(props) {
     const addToOrder = () => {
         let order = JSON.parse(localStorage.getItem(`order`)) //Controlar si existe
         if (order) { //Si existe simplemente agrego o modifico
-            order.items[props.data.id] = {dish: {id: props.data.id, unitPrice: props.data.price, restaurantId: props.data.Restaurant.id}, quantity}
+            order.items[props.data.id] = {dish: {id: props.data.id, name: props.data.name, description: props.data.description, unitPrice: props.data.price, restaurantId: props.data.Restaurant.id}, quantity}
         } else { // Si no existe creo order en el local storage y guardo el plato
             localStorage.setItem(`order`, JSON.stringify({items: {}, total:0}))
             order = JSON.parse(localStorage.getItem(`order`))
-            order.items[props.data.id] = {dish: {id: props.data.id, unitPrice: props.data.price, restaurantId: props.data.Restaurant.id}, quantity}
+            order.items[props.data.id] = {dish: {id: props.data.id, name: props.data.name, description: props.data.description ,unitPrice: props.data.price, restaurantId: props.data.Restaurant.id}, quantity}
         }
         let total = 0
 
