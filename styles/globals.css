@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#__next {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+
+.restaurant-card-container {
+  cursor: pointer;
+}
+
+.food-card-container {
+  cursor: pointer;
+}
+
+.food-card-container::before, .restaurant-card-container::before {
+  display: flex;
+  position: absolute;
+  content: 'Ver mas';
+  color: #ffffff;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  width: 100%;
+  height: 0%;
+  top: 0;
+  left: 0;
+  border-radius: .5rem;
+  background-color: #0a0a0a;
+  opacity: 0;
+  transition: all .2s ease-in;
+}
+
+.food-card-container:hover::before, .restaurant-card-container:hover::before {
+  visibility: visible;
+  opacity: .5;
+  height: 100%;
+}
